@@ -8,6 +8,13 @@ class App extends Component {
 
   componentDidMount() {
      // fetch data
+     fetch('http://127.0.0.1:8000/api/movies/', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Token testetwrwerwe'
+        }
+     }).then( resp => console.log(resp))
+     .catch(error => console.log(error))
   }
 
   render() {
