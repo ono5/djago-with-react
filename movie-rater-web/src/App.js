@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
 import MovieList from './components/movie-list';
+import MovieDetails from './components/movie-details';
 
 class App extends Component {
 
   state = {
-    movies: []
+    movies: [],
+    selectedMovie: null
   }
 
   componentDidMount() {
@@ -24,7 +26,11 @@ class App extends Component {
       return (
         <div className="App">
             <h1>Movie Rater</h1>
-            <MovieList movies={this.state.movies} />
+
+            <div className="layout">
+                <MovieList movies={this.state.movies} />
+                <MovieDetails movie={this.state.selectedMovie} />
+            </div>
         </div>
       );
    }
