@@ -4,16 +4,19 @@ import MovieList from './components/movie-list';
 
 class App extends Component {
 
-  movies = ['titanic', 'avatar'];
+  state = {
+    movies: []
+  }
 
   componentDidMount() {
      // fetch data
      fetch('http://127.0.0.1:8000/api/movies/', {
         method: 'GET',
         headers: {
-            'Authorization': 'Token testetwrwerwe'
+            'Authorization': 'Token 552790f7ff5ef8ed183d18df8433eb114cf052e6'
         }
-     }).then( resp => console.log(resp))
+     }).then( resp => resp.json())
+     .then( res => this.setState({movies: res}))
      .catch(error => console.log(error))
   }
 
@@ -21,7 +24,7 @@ class App extends Component {
       return (
         <div className="App">
             <h1>Movie Rater</h1>
-            <MovieList movies={this.movies} />
+            <MovieList movies={this.state.movies} />
         </div>
       );
    }
