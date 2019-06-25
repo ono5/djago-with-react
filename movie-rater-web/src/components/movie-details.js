@@ -6,7 +6,10 @@ class MovieDetails extends Component {
         return (
             <React .Fragment>
                 { this.props.movie ? (
-                    <h3>{this.props.movie.title}</h3>
+                    <div>
+                        <h3>{this.props.movie.title}</h3>
+                        <h3>{this.props.movie.description}</h3>
+                    </div>
                 ) : null}
             </React .Fragment>
         )
